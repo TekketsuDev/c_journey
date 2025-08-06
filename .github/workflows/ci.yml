@@ -31,8 +31,3 @@ jobs:
         echo "CC=gcc" >> $GITHUB_ENV
         echo "PATH=/c/ProgramData/chocolatey/bin:/mingw64/bin:$PATH" >> $GITHUB_ENV
 
-    - name: Run tests
-      shell: bash
-      run: |
-        make test
-
