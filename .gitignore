@@ -1,0 +1,18 @@
+# Build artifacts
+*.o
+*.exe
+*.so
+*.out
+program
+program.exe
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Editor configs
+*.swp
+*~
+
+# Ignore virtual machine files
+/win_machine/
