@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "platform.h"
+#include "sock_init.h"
 
 int main(void) {
     SOCKET s = 0;
@@ -15,5 +16,8 @@ int main(void) {
 #endif
     );
 
+//#ifdef _WIN32    
+    sock_init();
+//#endif
     return 0;
 }

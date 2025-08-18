@@ -1,0 +1,36 @@
+# === Compiler and Flags ===
+CFLAGS = -Wall -Wextra -Werror -O2
+WIN_LDFLAGS = -Wl,--subsystem,console -lws2_32
+LINUX_LDFLAGS =
+
+# === Platform Detection ===
+ifeq ($(TARGET),windows)
+	CC = x86_64-w64-mingw32-gcc
+	OUT = program.exe
+	PLATFORM_DIR = src/windows
+	LDFLAGS = $(WIN_LDFLAGS)
+else
+	CC = gcc
+	OUT = program
+	PLATFORM_DIR = src/linux
+	LDFLAGS = $(LINUX_LDFLAGS)
+endif
+
+COMMON_DIR = src/common
+
+# === File Discovery ===
+SRCS = $(wildcard $(COMMON_DIR)/*.c) $(wildcard $(PLATFORM_DIR)/*.c)
+OBJS = $(SRCS:.c=.o)
+
+# === Default Target ===
+all: $(OUT)
+
+$(OUT): $(SRCS)
+	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
+
+# === Clean Target ===
+clean:
+	rm -f $(OUT) $(COMMON_DIR)/*.o $(PLATFORM_DIR)/*.o
+
+.PHONY: all clean
+
