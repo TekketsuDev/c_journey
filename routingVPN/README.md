@@ -1,0 +1,1 @@
+- [ ] Validate ping of each interface recognized 
