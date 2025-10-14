@@ -24,8 +24,7 @@ int main(int argc, char *argv[]) {
 
         printf("%s", address->ifa_name);
         char host_buff[INET_ADDRSTRLEN];
-        int result =
-            getnameinfo(address->ifa_addr, sizeof(struct sockaddr_in),
+        int result = getnameinfo(address->ifa_addr, sizeof(struct sockaddr_in),
                         host_buff, sizeof(host_buff), NULL, 0, NI_NUMERICHOST);
 
         printf(",%s\n", host_buff);
