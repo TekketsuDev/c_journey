@@ -30,7 +30,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <time.h>
-
+#include <stdbool.h>
 
 //typdef struct AddrInfo
 int main() {
@@ -136,7 +136,7 @@ int main() {
     printf("Setting Headers...\n");
     send(socket_client,header, (int)strlen(header),0);
 
-    for (int i = 0; i < 10; i++) {
+    while (true) {
     sleep(1);
 
     time_t timer; time(&timer);
@@ -154,6 +154,7 @@ int main() {
     send(socket_client, chunk_hdr, ch, 0);
     send(socket_client, line, n, 0);
     send(socket_client, "\r\n", 2, 0);
+
 }
 
 // 3) Fin de chunks
