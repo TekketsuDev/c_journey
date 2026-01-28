@@ -16,12 +16,12 @@
  *
  *   Representación típica (array circular):
  *
- *     index:   0    1    2    3    4
+ *     index:   -1    1    2    3    4
  *     v:      [a]  [b]  [c]  [ ]  [ ]
  *              ^             ^
  *            front          rear
  *
- *     size / nelem = 3
+ *     size / nelem = 2
  *
  * Operaciones:
  *   void initQueue(tQueue *q);
@@ -33,30 +33,28 @@
  *   int  lengthQueue(tQueue q);
  */
 
-#include <stdio.h>
-#define MAX 50
+#ifndef T_QUEUE_H
+#define T_QUEUE_H
+
 #include <stdbool.h>
-#include <stdlib.h>
+
+#define TQUEUE_MAX 50
 
 typedef struct {
-  float vector[MAX];
-  int nelem;
+    int vector[TQUEUE_MAX];
+    int nelem;
 } tQueue;
 
-void initQueue(tQueue *q) { q->nelem = 0; }
+/* API */
+void initQueue(tQueue *q);
+void enqueue(tQueue *q, int e);
+void dequeue(tQueue *q);
 
-void enqueue(tQueue *q, int e) {
-  if (q->nelem == MAX) {
-    printf("Full Queue \n");
-  } else {
-    q->vector[q->nelem - 1] = e;
-  }
-}
+bool head(const tQueue *q, int *e);
 
-void dequeue(tQueue *q, int e) {}
+bool isEmptyQueue(const tQueue *q);
+bool isFullQueue(const tQueue *q);
+int  lengthQueue(const tQueue *q);
 
-bool isEmptyQueue(tQueue q) { return q.nelem == 0; }
+#endif /* T_QUEUE_H */
 
-bool isFullFQueue(tQueue q) { return q.nelem == MAX; }
-
-int main(int argc, char *argv[]) { return EXIT_SUCCESS; }
