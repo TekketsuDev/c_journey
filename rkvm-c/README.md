@@ -14,6 +14,14 @@ The project focuses on:
 
 ---
 
+## Documentation
+- [Fork QMK firmware for ZSA](https://github.com/zsa/qmk_firmware)
+- [QMK documentation start-up](https://docs.qmk.fm/newbs_getting_started)
+- [ZSA - Oryx with QMK auto configure with Github Actions](https://github.com/poulainpi/oryx-with-custom-qmk)
+
+## Future Documentation
+- [Split Keyboard craft QMK Firmware Setup](https://github.com/qmk/qmk_firmware/blob/master/docs/features/split_keyboard.md)
+
 ## Instructions
 
 ### Requirements

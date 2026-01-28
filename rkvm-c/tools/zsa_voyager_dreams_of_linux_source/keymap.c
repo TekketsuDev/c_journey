@@ -9,8 +9,6 @@ enum custom_keycodes {
   RGB_SLD = ZSA_SAFE_RANGE,
 };
 
-
-
 enum tap_dance_codes {
   DANCE_0,
   DANCE_1,
@@ -61,7 +59,6 @@ RGB hsv_to_rgb_with_value(HSV hsv) {
   return (RGB){ f * rgb.r, f * rgb.g, f * rgb.b };
 }
 
-void keyboard_post_init_user(void) {
   rgb_matrix_enable();
 }
 
@@ -120,10 +117,8 @@ bool rgb_matrix_indicators_user(void) {
       rgb_matrix_set_color_all(0, 0, 0);
     }
   }
-
   return true;
 }
-
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
